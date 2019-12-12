@@ -5,8 +5,11 @@ Install [__OBS__](https://obsproject.com) version 24.0.3.
 # OBS Configuration 
 
 In Settings->Stream, change to :
-Service: Custom.
-Server: rtmp://localhost/live..
+
+Service: Custom
+
+Server: rtmp://localhost/live
+
 Key stream: STREAM_NAME
 
 # Publish the RTMP stream
