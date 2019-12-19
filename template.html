@@ -4,7 +4,8 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
     <title>Video Streamings Protocol</title>
 </head>
 
@@ -31,7 +32,7 @@
         </div>
         <div class="card">
             <div class="card-header">
-                Demonstration
+                <video id="videoElement" style="width:50%" autoplay="true" muted="muted"></video>
             </div>
             <div class="card-body">
                 <p class="card-text">Bon courage pour cette partie.</p>
@@ -47,6 +48,18 @@
             </div>
         </div>
     </div>
+    <script>
+        if (flvjs.isSupported()) {
+            var videoElement = document.getElementById('videoElement');
+            var flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: 'http://localhost:8000/live/STREAM_NAME.flv'
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load();
+            flvPlayer.play();
+        }
+    </script>
 </body>
 
 </html>
