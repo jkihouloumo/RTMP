@@ -6,6 +6,8 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
     <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Video Streamings Protocol</title>
 </head>
 
@@ -32,6 +34,9 @@
         </div>
         <div class="card">
             <div class="card-header">
+                Demonstration
+            </div>
+            <div class="card-header">
                 <video id="videoElement" style="width:50%" autoplay="true" muted="muted"></video>
             </div>
             <div class="card-body">
@@ -43,8 +48,47 @@
                 HowTo
             </div>
             <div class="card-body">
-                <h5 class="card-title">0. Prerequisites</h5>
-                <p class="card-text">Blabla</p>
+                <h4 class="card-title">Prerequisites</h4>
+                Install the last version of <a href="https://nodejs.org/en/download/">Node</a>
+                <h4 class="card-title">Open Broadcaster Software</h4>
+                <p class="card-text"><a href="https://obsproject.com/fr">OBS</a> is an open-source software used for
+                    video recording and live streaming. It will be used to push the RTMP source of your webcam to the
+                    RTMP server.
+                </p>
+                <h6>Step 1: Install OBS.</h6>
+                <p></p>
+                <h6>Step 2: OBS settings.</h6>
+                <p>
+                    In the main page, add your webcam to <strong>Sources</strong> tab by clicking on the add button and
+                    selecting <em>Video Capture Device</em>.
+                    Then, click on <strong>Settings</strong> and select <em>Stream</em>.
+                    Change the default values by the values in the following image.
+                    <br>
+                    <img src="./images/obs_settings.png">
+                    Click on <em>ok</em> to save the configuration.
+                </p>
+                <h4 class="card-title">Node Media Server</h4>
+                <a href="https://github.com/illuspas/Node-Media-Server">Node Media Server</a> is a Node.js
+                implementation of RTMP Media Server. Other protocols are available through this library.
+                <br>
+                This server was chosen for the demonstration because it can be run whether on MacOS or Linux.
+                To start the server, run the following line in the folder where <em>app.js</em> is located:
+                <br>
+                <br>
+                <strong>node app.js</strong>
+                <br>
+                <br>
+                <hr>
+                <strong>Note:</strong> Node Media Server is not the most famous solution for the RTMP Server. You can
+                use <a href="https://github.com/arut/nginx-rtmp-module">Arut's project</a> which is based on a nginx
+                server and really simple to implement.
+                Nevertheless, it will not be easily portable on MacOS as it needs libraries which are not available on
+                this OS.
+                <hr>
+                <h4 class="card-title">Start Streaming</h4>
+                Go back to <strong>OBS</strong> and click on <em>Start Streaming</em>.<br>
+                If you followed each step, in your RTMP server terminal you can see the following lines:
+                <img src="images/results_rtmp.png" style="width:70%">
             </div>
         </div>
     </div>
