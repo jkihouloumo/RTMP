@@ -48,6 +48,16 @@
                 HowTo
             </div>
             <div class="card-body">
+                <h4 class="card-title">Architecture</h4>
+                <img src="./images/architecture.png">
+                In the above image, the classical architecture of RTMP is presented. The latter involves three actors:
+                <ul>
+                    <li>A <b>source</b>: he is the one who wants to broadcast the video. To do this, it sends an RTMP stream to the second actor, which is the server.</li>
+                    <li>An <b>RTMP Media Server</b>: it receives the RTMP stream, converts it into another format which is supported by HTML5 and sends it to clients which ask the stream.</li>
+                    <li>A <b>client</b>: he is the one who wants to see the stream. To do this, he asks the RTMP Media Server and he receives the RTMP stream converted in another format which is then displayed in its browser. </li>
+                </ul>
+                <br>
+                In our case, the conversion is not done by the RTMP Media Server but with the player available in the webpage. It converts the RTMP stream into MP4 segments and feeds the segments into an HTML5 video element.
                 <h4 class="card-title">Prerequisites</h4>
                 Install the last version of <a href="https://nodejs.org/en/download/">Node</a>
                 <h4 class="card-title">Open Broadcaster Software</h4>
@@ -60,11 +70,12 @@
                 <h6>Step 2: OBS settings.</h6>
                 <p>
                     In the main page, add your webcam to <strong>Sources</strong> tab by clicking on the add button and
-                    selecting <em>Video Capture Device</em>.
+                    selecting the <em>Video Capture Device</em>.
                     Then, click on <strong>Settings</strong> and select <em>Stream</em>.
                     Change the default values by the values in the following image.
                     <br>
                     <img src="./images/obs_settings.png">
+                    <br>
                     Click on <em>ok</em> to save the configuration.
                 </p>
                 <h4 class="card-title">Node Media Server</h4>
@@ -80,15 +91,17 @@
                 <br>
                 <hr>
                 <strong>Note:</strong> Node Media Server is not the most famous solution for the RTMP Server. You can
-                use <a href="https://github.com/arut/nginx-rtmp-module">Arut's project</a> which is based on a nginx
-                server and really simple to implement.
-                Nevertheless, it will not be easily portable on MacOS as it needs libraries which are not available on
+                use <a href="https://github.com/arut/nginx-rtmp-module">Arut's project</a> which is based on an NGINX
+                server and simple to implement.
+                Nevertheless, it will not be easily portable on macOS as it needs libraries which are not available on
                 this OS.
                 <hr>
                 <h4 class="card-title">Start Streaming</h4>
                 Go back to <strong>OBS</strong> and click on <em>Start Streaming</em>.<br>
                 If you followed each step, in your RTMP server terminal you can see the following lines:
                 <img src="images/results_rtmp.png" style="width:70%">
+                <h4 class="card-title">See the stream in the html page.</h4>
+                Open the <em>template.html</em> file and your stream is available on the webpage!
             </div>
         </div>
     </div>
